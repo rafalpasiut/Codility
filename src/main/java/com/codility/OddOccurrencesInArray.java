@@ -1,7 +1,7 @@
 package com.codility;
 import java.util.*;
 
-public class EvenInOddArray {
+public class OddOccurrencesInArray {
     public int solution(int[] A) {
 
         if(A.length == 1) {

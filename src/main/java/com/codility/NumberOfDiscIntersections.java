@@ -2,7 +2,7 @@ package com.codility;
 
 import java.util.Arrays;
 
-public class DiscIntersection {
+public class NumberOfDiscIntersections {
     public int serach(int[] array, long target, int start){ // znajdz ostatni <= target
         int high,mid;
         high = array.length;

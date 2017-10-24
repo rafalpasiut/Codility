@@ -1,7 +1,7 @@
 package com.codility;
 import java.util.Arrays;
 
-public class ArythmeticSeriesMissingElement {
+public class PermMissingElem {
     public int solution(int[] A) {
 
         int i;

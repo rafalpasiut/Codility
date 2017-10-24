@@ -2,7 +2,7 @@ package com.codility;
 import java.util.*;
 
 //Frog jump
-public class MinimalJumps {
+public class FrogJmp {
     public int solution(int X, int Y, int D) {
 
         int jumpsNo;

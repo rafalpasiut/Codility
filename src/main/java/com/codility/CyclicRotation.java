@@ -1,6 +1,6 @@
 package com.codility;
 
-public class ArrayShift {
+public class CyclicRotation {
     public int[] solution(int[] A, int K) {
 
         int length = A.length;
