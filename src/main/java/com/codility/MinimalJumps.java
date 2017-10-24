@@ -1,5 +1,5 @@
 package com.codility;
-import java.util.*
+import java.util.*;
 
 //Frog jump
 public class MinimalJumps {

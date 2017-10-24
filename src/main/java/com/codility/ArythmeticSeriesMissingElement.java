@@ -1,4 +1,5 @@
 package com.codility;
+import java.util.Arrays;
 
 public class ArythmeticSeriesMissingElement {
     public int solution(int[] A) {
