@@ -1,10 +1,6 @@
 package com.codility;
 
 import java.util.Arrays;
-
-public class Triangle {
-import java.util.*;
-
 // you can write to stdout for debugging purposes, e.g.
 // System.out.println("this is a debug message");
 
@@ -23,4 +19,4 @@ import java.util.*;
             return 0;
         }
     }
-}
+
