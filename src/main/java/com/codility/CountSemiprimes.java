@@ -1,39 +1,68 @@
 package com.codility;
 
+import java.util.Arrays;
+
 public class CountSemiprimes {
 
-    boolean[] notPrime, semi;
-    public void seivee(int n) {
-        for (int i=2; i * i<=n; i++) {
-            if (notPrime[i]) continue;
-            for (int k=i*i; k<=n; k+=i) {
-                notPrime[k] = true;
+    boolean[] prime, semiPrime;
+
+    public void sieve(int n) {
+        prime = new boolean[n+1];
+        Arrays.fill(prime,true);
+        prime[0]=prime[1]=false;
+        for(int i=2;i*i<=n;i++){
+            for(int j=i*i;j<=n;j+=i){
+                prime[j]=false;
             }
         }
     }
 
     public void semi(int n) {
-        for (int i=2; i*i<=n; i++) {
-            if (notPrime[i]) continue;
-            for (int k=i*i; k<=n; k+=i) {
-                if (!notPrime[k/i]) semi[k] = true;
+        semiPrime = new boolean[n+1];
+        for(int i=2;i*i<=n;i++){
+            if(!prime[i]){
+                continue;
+            }else{
+                for(int j=i*i;j<=n;j+=i){
+                    if(prime[j/i]){
+                        semiPrime[j] = true;
+                    }
+                }
             }
         }
     }
 
     public int[] solution(int N, int[] P, int[] Q) {
-        notPrime = new boolean[N+1];
-        seivee(N);
-        semi = new boolean[N+1];
+        sieve(N);
         semi(N);
         int[] sum = new int[N+1];
-        for (int i=1; i<=N; i++) {
-            sum[i] = sum[i-1];
-            if (semi[i]) sum[i]++;
+        int[] result = new int[P.length];
+        for(int i=2; i<=N;i++){
+            sum[i] = sum [i-1];
+            if(semiPrime[i]){
+                sum[i]++;
+            }
         }
-        for (int i=0; i<P.length; i++) {
-            P[i] = sum[Q[i]] - sum[P[i] - 1];
+        for(int i=0;i<P.length;i++){
+            result[i]=sum[Q[i]]-sum[P[i]];
+            if(semiPrime[P[i]]){
+                result[i]++;
+            }
         }
-        return P;
+        return result;
+    }
+
+    public static void main(String[] arg){
+        int n=26;
+        int[] p = {1,4,16};
+        int[] q = {26,10,20};
+
+        CountSemiprimes semiCount = new CountSemiprimes();
+
+        int[] semi = semiCount.solution(n,p,q);
+
+        for(int i: semi){
+            System.out.print(i+";");
+        }
     }
 }
